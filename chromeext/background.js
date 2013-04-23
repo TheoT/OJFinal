@@ -9,7 +9,7 @@
 chrome.tabs.onActivated.addListener(function(activeInfo) {
 	chrome.tabs.get(activeInfo.tabId, function(tab) {
 		console.log(tab.url);
-		sendPost();
+		sendPost(tab.url);
 	})
 });
 
@@ -17,8 +17,8 @@ chrome.tabs.onActivated.addListener(function(activeInfo) {
 // 	// alert("on highlighted");
 // });
 
-function sendPost() {
-	$.get('http://localhost:3000/', {site: "google"}, function(data){
+function sendPost(url) {
+	$.get('http://localhost:3000/', {site: url}, function(data){
 		console.log(data);
 	});
 }
