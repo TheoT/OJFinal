@@ -1,6 +1,6 @@
 var socket = io.connect()
 $(function(){
-	socket.emit('talkback',{scroll: 'is this a websocket?'})
+	socket.emit('talkback',{scroll: '0'})
 })
 
 $(window).scroll(function () {
