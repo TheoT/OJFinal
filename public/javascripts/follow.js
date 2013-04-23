@@ -2,8 +2,8 @@ var socket = io.connect()
 var pos;
 $("#followFrame").ready(function(){
 	socket.on('talkback',function(data){
-		pos=data.msg
-		$("#followFrame").contents().scrollTop(data.msg);
+		pos=data.scroll
+		$("#followFrame").contents().scrollTop(data.scroll);
 	})
 
 })
