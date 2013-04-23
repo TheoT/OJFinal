@@ -1,9 +1,9 @@
 var socket = io.connect()
 $(function(){
-	socket.emit('talkback',{msg: 'is this a websocket?'})
+	socket.emit('talkback',{scroll: '0'})
 })
 
 $(window).scroll(function () {
 	s = $('body').scrollTop();
-	socket.emit('talkback',{msg: s})
+	socket.emit('talkback',{scroll: s})
 });
