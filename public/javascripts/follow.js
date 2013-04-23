@@ -1,10 +1,13 @@
 var socket = io.connect()
 var pos;
-socket.on('talkback',function(data){
-	pos=data.msg
-	$('body').scrollTop(data.msg);
+$("#followFrame").ready(function(){
+	socket.on('talkback',function(data){
+		pos=data.msg
+		$("#followFrame").contents().scrollTop(data.msg);
+	})
+
 })
 
 function sync(){
-	$('body').scrollTop(pos);
-}
+	$("#followFrame").contents().scrollTop(pos);
+}		
