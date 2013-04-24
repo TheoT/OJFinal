@@ -28,17 +28,22 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
+//start server
 app.http().io()
 
+//listen to specified port
+app.listen(app.get('port'), function () {
+  console.log("Express server listening on port " + app.get('port'));
+});
 
-app.listen(3000)
-
+//THIS IS WHERE TEH MAGIC HAPPENS
 app.io.route('talkback',broadcast.sendPos);
 
-app.get('/broadcast',function(req,res){
-  res.render('broadcast.jade')
-})
 
-app.get('/follow',function(req,res){
+app.get('/', routes.index);
+app.get('/broadcast', function(req,res){
+  res.render('broadcast.jade')
+});
+app.get('/follow', function(req,res){
   res.render('follow.jade')
-})
+});

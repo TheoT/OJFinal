@@ -1,7 +1,12 @@
 extends layout
 
+block nav-content
+	li.active
+		a(href='/')
+			i.icon-home.icon-white
+			| Home
+
 block content
-	script(src='javascripts/follow.js')
 	p 1
 	p 2
 	p 3
@@ -34,3 +39,6 @@ block content
 	p 30
 	
 	button(onclick="sync()") SYNC
+
+block js-load
+	script(src='javascripts/follow.js')
