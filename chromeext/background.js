@@ -6,10 +6,14 @@
 // 	// alert("GAYER!");
 // });
 
+var SERVER_HOST='localhost';
+var SERVER_PORT='3000';
+var socket = new io.connect(SERVER_HOST,{port: SERVER_PORT});
+
 chrome.tabs.onActivated.addListener(function(activeInfo) {
 	chrome.tabs.get(activeInfo.tabId, function(tab) {
 		console.log(tab.url);
-		sendPost(tab.url);
+		socket.emit('talkback',{scroll: 0, page: tab.url})
 	})
 });
 
@@ -17,8 +21,8 @@ chrome.tabs.onActivated.addListener(function(activeInfo) {
 // 	// alert("on highlighted");
 // });
 
-function sendPost(url) {
-	$.get('http://localhost:3000/', {site: url}, function(data){
-		console.log(data);
-	});
-}
+// function sendPost(url) {
+// 	$.get('http://localhost:3000/', {site: url}, function(data){
+// 		console.log(data);
+// 	});
+// }
