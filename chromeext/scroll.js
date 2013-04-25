@@ -1,12 +1,13 @@
-
-var socket = io.connect()
+var SERVER_HOST='localhost';
+var SERVER_PORT='3000'; 
+var socket = io.connect(SERVER_HOST,{port:SERVER_PORT})
 var s=0;
 $(window).scroll(function () {
 	s = $('body').scrollTop();
 	console.log(s);
-	socket.emit('talkback',{scroll: s})
+	socket.emit('scrollSock',{scroll: s})
 });
 
 $(function(){
-	socket.emit('talkback',{scroll: '0'});
+	socket.emit('scrollSock',{scroll: '0'});
 })

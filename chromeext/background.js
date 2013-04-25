@@ -13,7 +13,7 @@ var socket = new io.connect(SERVER_HOST,{port: SERVER_PORT});
 chrome.tabs.onActivated.addListener(function(activeInfo) {
 	chrome.tabs.get(activeInfo.tabId, function(tab) {
 		console.log(tab.url);
-		socket.emit('talkback',{scroll: 0, page: tab.url})
+		socket.emit('pageSock',{page: tab.url})
 	})
 });
 

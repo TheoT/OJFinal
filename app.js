@@ -37,7 +37,8 @@ app.listen(app.get('port'), function () {
 });
 
 //THIS IS WHERE TEH MAGIC HAPPENS
-app.io.route('talkback',broadcast.sendPos);
+app.io.route('scrollSock',broadcast.sendPos);
+app.io.route('pageSock',broadcast.sendPage);
 
 
 app.get('/', routes.index);
