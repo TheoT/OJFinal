@@ -24,3 +24,7 @@ a {
   padding: 20px 0;
   border-top: 1px solid #e5e5e5;
 }
+
+.pad {
+  border: 1px solid #c5c5c5;
+}
