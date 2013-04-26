@@ -1,10 +1,14 @@
 var socket = io.connect()
 var pos;
-$("#followFrame").ready(function(){
+$(function(){
 	socket.on('scrollSock',function(data){
 		pos=data.scroll
-		$("#followFrame").contents().scrollTop(data.scroll);
-		console.log(data.page)
+		$("#fakeFrame").scrollTop(data.scroll);
+		console.log(data)
+		if($("#followFrame").height() != data.height){
+			$("#followFrame").height(data.height+"px")
+			console.log("doc height: "+data.height)
+		}
 	});
 	socket.on('pageSock',function(data){
 		$("#followFrame").attr('src',data.page)
@@ -13,5 +17,5 @@ $("#followFrame").ready(function(){
 })
 
 function sync(){
-	$("#followFrame").contents().scrollTop(pos);
+	$("#fakeFrame").scrollTop(100);
 }		

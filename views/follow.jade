@@ -7,10 +7,11 @@ block nav-content
 			| Home
 
 block content
-	center(style="height:100%;")
+	div(id="fakeFrame",style="height: 200px;overflow: scroll;")
 		iframe(id= 'followFrame',src='http://localhost:3000/broadcast',
-			style="width:100%;height:60%;")
+			style="width:100%;height:1000%;")
 	button(onclick="sync()") SYNC
 
 block js-load
 	script(src='javascripts/follow.js')
+
