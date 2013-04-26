@@ -14,4 +14,17 @@ $(window).scroll(function () {
 	docHeight=$(document).height();
 	socket.emit('scrollSock',{scroll: s, height:docHeight})
 	console.log("doc height: "+docHeight)
+
+//the following code captures any changes made to the textarea. We just need to have the socket emit the text
+$('#pad').bind('input propertychange', function() {
+  // $("#yourBtnID").hide();
+
+  // if(this.value.length){
+  //   $("#yourBtnID").show();
+  // }
+  socket.emit('pirateSock', { text: '' })
+
+  if(this.value.length) {
+    socket.emit('pirateSock',{ text: this.value })
+  }
 });

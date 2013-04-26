@@ -11,10 +11,12 @@ $(function(){
 		}
 	});
 	socket.on('pageSock',function(data){
-		$("#followFrame").attr('src',data.page)
-	})
-
-})
+		$("#followFrame").attr('src',data.page);
+	});
+  socket.on('pirateSock', function (data) {
+    $("#textpad").text(data.text);
+  });
+});
 
 function sync(){
 	$("#fakeFrame").scrollTop(100);
