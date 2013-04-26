@@ -7,9 +7,9 @@ block nav-content
 			| Home
 
 block content
-	center(style="height:100%;")
+	div(id="fakeFrame",style="height: 500px;overflow: scroll;")
 		iframe(id= 'followFrame',src='http://localhost:3000/broadcast',
-			style="width:100%;height:60%;")
+			style="width:100%;height:1000%")
 	button.btn.btn-primary(onclick="sync()") SYNC
 	.pull-right.btn-group
 		button.btn.btn-danger Slow down. I'm lost!
@@ -18,6 +18,6 @@ block content
 	h3 Notes/PiratePad type-ish thing
 	#textpad
 
-
 block js-load
 	script(src='javascripts/follow.js')
+

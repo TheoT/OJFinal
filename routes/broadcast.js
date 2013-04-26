@@ -1,6 +1,6 @@
 exports.sendPos = function(req){
-	req.socket.broadcast.emit('scrollSock',{scroll:req.data.scroll})
-	console.log(req.data.scroll)
+	req.socket.broadcast.emit('scrollSock',{scroll:req.data.scroll, height:req.data.height})
+	console.log("docHeight"+req.data.height)
 }
 
 exports.sendPage=function(req){
