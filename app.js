@@ -39,12 +39,12 @@ app.listen(app.get('port'), function () {
 //THIS IS WHERE TEH MAGIC HAPPENS
 app.io.route('scrollSock',broadcast.sendPos);
 app.io.route('pageSock',broadcast.sendPage);
-
+app.io.route('pirateSock',broadcast.sendText);
 
 app.get('/', routes.index);
-app.get('/broadcast', function(req,res){
+app.get('/broadcast', function (req, res) {
   res.render('broadcast.jade')
 });
-app.get('/follow', function(req,res){
+app.get('/follow', function (req, res) {
   res.render('follow.jade')
 });
