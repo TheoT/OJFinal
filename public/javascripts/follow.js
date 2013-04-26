@@ -7,10 +7,12 @@ $("#followFrame").ready(function(){
 		console.log(data.page)
 	});
 	socket.on('pageSock',function(data){
-		$("#followFrame").attr('src',data.page)
-	})
-
-})
+		$("#followFrame").attr('src',data.page);
+	});
+  socket.on('pirateSock', function (data) {
+    $("#textpad").text(data.text);
+  });
+});
 
 function sync(){
 	$("#followFrame").contents().scrollTop(pos);
