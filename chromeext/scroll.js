@@ -11,3 +11,17 @@ $(window).scroll(function () {
 $(function(){
 	socket.emit('scrollSock',{scroll: '0'});
 })
+
+//the following code captures any changes made to the textarea. We just need to have the socket emit the text
+$('#pad').bind('input propertychange', function() {
+  // $("#yourBtnID").hide();
+
+  // if(this.value.length){
+  //   $("#yourBtnID").show();
+  // }
+  socket.emit('pirateSock', { text: '' })
+
+  if(this.value.length) {
+    socket.emit('pirateSock',{ text: this.value })
+  }
+});

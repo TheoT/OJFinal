@@ -7,14 +7,22 @@ block nav-content
 			| Home
 
 block content
-	.row-fluid
-		.span8
-			center(style="height:100%;")
-				iframe(id= 'followFrame',src='http://localhost:3000/broadcast')
-					//-style="width:100%;height:60%;")
-			button(onclick="sync()") SYNC
-		.span2.pad
-			p wutwut
+	center(style="height:100%;")
+		iframe(id= 'followFrame',src='http://localhost:3000/broadcast',
+			style="width:100%;height:60%;")
+	button.btn.btn-primary(onclick="sync()") SYNC
+	.pull-right.btn-group
+		button.btn.btn-danger Slow down. I'm lost!
+		button.btn This is the perfect pace. SWAG
+		button.btn.btn-success Speed up!
+	h3 Notes/PiratePad type-ish thing
+	.pad
+		p wut wut wut wut wut wut wut wut wut wut wut wut wut wut wut wut 
+		p THIS IS FUCKING AWESOME
+		p WHY DOES IT ONLY SCROLL SIDEWAYS
+		p this pad is definitely weird
+		p queer*
+		p like queef
 
 
 

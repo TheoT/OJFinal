@@ -23,8 +23,13 @@ a {
 .footer {
   padding: 20px 0;
   border-top: 1px solid #e5e5e5;
+  margin-top: 20px;
 }
 
 .pad {
   border: 1px solid #c5c5c5;
+  padding: 10px;
+  padding-bottom: 0px;
+  overflow: scroll;
+  height: 150px;
 }
