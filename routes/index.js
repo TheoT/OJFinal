@@ -4,5 +4,5 @@
  */
 
 exports.index = function(req, res){
-  res.render('index', { title: 'FUCK YOU' });
+  res.render('index', { title: 'Follow.js' });
 };

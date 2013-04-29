@@ -7,6 +7,7 @@ var express = require('express.io')
   , routes = require('./routes')
   , user = require('./routes/user')
   , broadcast = require('./routes/broadcast')
+  , follow = require('./routes/follow')
   , http = require('http')
   , path = require('path');
 
@@ -40,6 +41,7 @@ app.listen(app.get('port'), function () {
 app.io.route('scrollSock',broadcast.sendPos);
 app.io.route('pageSock',broadcast.sendPage);
 app.io.route('pirateSock',broadcast.sendText);
+app.io.route('notifySock', follow.follow);
 
 app.get('/', routes.index);
 app.get('/broadcast', function (req, res) {
