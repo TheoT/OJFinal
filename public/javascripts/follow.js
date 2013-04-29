@@ -4,6 +4,7 @@ $(function(){
 	socket.on('scrollSock',function(data){
 		pos=data.scroll
 		$("#fakeFrame").scrollTop(data.scroll);
+		$("#followFrame").css("overflow","hidden");
 		console.log(data)
 		if($("#followFrame").height() != data.height){
 			$("#followFrame").height(data.height+"px")
