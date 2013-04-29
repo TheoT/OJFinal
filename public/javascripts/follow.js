@@ -12,6 +12,7 @@ $(function(){
 			console.log("doc height: "+data.height)
 		}
 	});
+
 	socket.on('pageSock',function(data){
 		src=data.page;
 		$("#followFrame").attr('src',data.page);
@@ -20,7 +21,6 @@ $(function(){
 	socket.on('pirateSock', function (data) {
 		$("#textpad").text(data.text);
 	});
-  
 });
 
 function sync(){
@@ -31,5 +31,5 @@ function sync(){
 }		
 
 $(".notify").on('click', function () {
-	$.post("/follow", $(this).attr('id'));
+	$.post("/notify", { type: $(this).attr('id') });
 });
