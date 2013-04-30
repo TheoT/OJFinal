@@ -29,3 +29,9 @@ $(function () {
 $("body").load(function() {
 	$("#pad").val() = localStorage["pirateText"];
 })
+
+$('#reset').on('click', function () {
+	$('#slow').text(0);
+	$('#perfect').text(0);
+	$('#speed').text(0);
+});
