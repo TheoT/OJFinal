@@ -1,6 +1,10 @@
-var SERVER_HOST='localhost';
-var SERVER_PORT='3000';
-var socket = new io.connect(SERVER_HOST,{port: SERVER_PORT});
+// var SERVER_HOST='localhost';
+// var SERVER_PORT='3000';
+io.configure(function () { 
+  io.set("transports", ["xhr-polling"]); 
+  io.set("polling duration", 10); 
+});
+var socket = new io.connect(); //SERVER_HOST,{port: SERVER_PORT}
 
 chrome.tabs.onActivated.addListener(function(activeInfo) {
 	chrome.tabs.get(activeInfo.tabId, function(tab) {
