@@ -33,3 +33,7 @@ a {
   overflow: scroll;
   height: 150px;
 }
+
+#fakeFrame {
+  margin-bottom: 20px;
+}

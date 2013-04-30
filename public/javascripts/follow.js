@@ -1,5 +1,6 @@
 var socket = io.connect()
 var pos;
+var src;
 $(function(){
 	socket.on('scrollSock',function(data){
 		pos=data.scroll
@@ -12,18 +13,24 @@ $(function(){
 		}
 	});
 	socket.on('pageSock',function(data){
+		src=data.page;
 		$("#followFrame").attr('src',data.page);
 	});
-  socket.on('pirateSock', function (data) {
-    $("#textpad").text(data.text);
-  });
+
+	socket.on('pirateSock', function (data) {
+		$("#textpad").text(data.text);
+	});
+  
 });
 
 function sync(){
-	$("#fakeFrame").scrollTop(100);
+	if(("#followFrame").attr('src')!=src && src!=undefined){
+		$("#followFrame").attr('src',src);
+	}
+	$("#fakeFrame").scrollTop(pos);
 }		
 
 //post to server on "slow down", "perfect pace", or "speed up" button press
 $(".notify").on('click', function () {
-	$.post("/notify", $(this).attr('id'));
+	$.post("/follow", $(this).attr('id'));
 });
