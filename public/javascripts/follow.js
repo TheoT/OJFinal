@@ -1,11 +1,11 @@
 var socket = io.connect()
 var pos;
 var src;
-var syncing=true;
+var syncing = true;
 $(function(){
 	socket.on('scrollSock',function(data){
 		pos=data.scroll
-		if(syncing){
+		if (syncing) {
 			$("#fakeFrame").scrollTop(data.scroll);
 			$("#followFrame").css("overflow","hidden");
 			console.log(data)
@@ -45,4 +45,4 @@ function sync(){
 
 $("#fakeFrame").scroll(function () {
 	syncing=false;
-}
+});
