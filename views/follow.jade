@@ -10,11 +10,11 @@ block content
 	div(id="fakeFrame",style="height: 500px;overflow: scroll;")
 		iframe(id= 'followFrame',src='http://ojfinal.herokuapp.com/broadcast',
 			style="width:100%;height:1000%; overflow: hidden")
+	.pull-right.btn-toolbar
+		button.btn.btn-large.notify#slow Slow down. I'm lost!
+		button.btn.btn-large.notify#perfect This is the perfect pace.
+		button.btn.btn-large.notify#speed Speed up!
 	button.btn.btn-primary(onclick="sync()") SYNC
-	.pull-right.btn-group
-		button.btn.btn-danger.notify#slow Slow down. I'm lost!
-		button.btn.notify#perfect This is the perfect pace. SWAG
-		button.btn.btn-success.notify#speed Speed up!
 	h3 Notes/PiratePad type-ish thing
 	#textpad
 
