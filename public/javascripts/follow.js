@@ -44,5 +44,5 @@ function sync(){
 }		
 
 $("#fakeFrame").scroll(function () {
-	syncing=false;
+	// syncing=false;
 });
