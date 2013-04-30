@@ -25,3 +25,7 @@ $(function () {
 		$('#' + data.type).text(next);
 	});
 })
+
+$("body").load(function() {
+	$("#pad").val() = localStorage["pirateText"];
+})

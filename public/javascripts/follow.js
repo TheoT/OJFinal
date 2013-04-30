@@ -14,6 +14,7 @@ $(function(){
 	});
 
 	socket.on('pageSock',function(data){
+		console.log("DATA!!!  ",data);
 		src=data.page;
 		$("#followFrame").attr('src',data.page);
 	});

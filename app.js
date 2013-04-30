@@ -43,17 +43,19 @@ io.configure(function () {
 
 //THIS IS WHERE TEH MAGIC HAPPENS
 app.io.route('scrollSock', broadcast.sendPos);
-app.io.route('pageSock', broadcast.sendPage);
 app.io.route('pirateSock', broadcast.sendText);
 app.io.route('notifySock', function (req) {
   req.socket.broadcast.emit('notifySock', { type: req.data.type });
 });
+app.io.route('pageSock', broadcast.sendPage);
 
 
-app.get('/', routes.index);
 app.get('/broadcast', function (req, res) {
   res.render('broadcast.jade')
 });
 app.get('/follow', function (req, res) {
+  res.render('follow.jade')
+});
+app.get('/', function (req, res) {
   res.render('follow.jade')
 });
