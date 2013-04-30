@@ -44,10 +44,12 @@ app.io.route('notifySock', function (req) {
 });
 
 
-app.get('/', routes.index);
 app.get('/broadcast', function (req, res) {
   res.render('broadcast.jade')
 });
 app.get('/follow', function (req, res) {
+  res.render('follow.jade')
+});
+app.get('/', function (req, res) {
   res.render('follow.jade')
 });
