@@ -36,9 +36,9 @@ app.listen(app.get('port'), function () {
 });
 
 // Heroku setting for long polling
-io.configure(function () { 
-    io.set("transports", ["xhr-polling"]); 
-    io.set("polling duration", 10); 
+app.io.configure(function () { 
+    app.io.set("transports", ["xhr-polling"]); 
+    app.io.set("polling duration", 10); 
 });
 
 //THIS IS WHERE TEH MAGIC HAPPENS
