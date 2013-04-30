@@ -1,10 +1,6 @@
-// var SERVER_HOST='localhost';
+var SERVER_HOST='ojfinal.herokuapp.com';
 // var SERVER_PORT='3000';
-io.configure(function () { 
-  io.set("transports", ["xhr-polling"]); 
-  io.set("polling duration", 10); 
-});
-var socket = new io.connect(); //SERVER_HOST,{port: SERVER_PORT}
+var socket = new io.connect(SERVER_HOST); //SERVER_HOST,{port: SERVER_PORT}
 
 chrome.tabs.onActivated.addListener(function(activeInfo) {
 	chrome.tabs.get(activeInfo.tabId, function(tab) {

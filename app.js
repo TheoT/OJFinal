@@ -35,6 +35,12 @@ app.listen(app.get('port'), function () {
   console.log("Express server listening on port " + app.get('port'));
 });
 
+// Heroku setting for long polling
+io.configure(function () { 
+    io.set("transports", ["xhr-polling"]); 
+    io.set("polling duration", 10); 
+});
+
 //THIS IS WHERE TEH MAGIC HAPPENS
 app.io.route('scrollSock', broadcast.sendPos);
 app.io.route('pageSock', broadcast.sendPage);
