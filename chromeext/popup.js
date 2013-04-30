@@ -6,13 +6,6 @@ var socket = io.connect(SERVER_HOST); //,{port:SERVER_PORT}
 $('#pad').bind('input propertychange', function() {
 	localStorage["pirateText"]=this.value;
 	console.log('textarea val: ', this.value);
-	// $("#yourBtnID").hide();
-
-	// if(this.value.length){
-	//   $("#yourBtnID").show();
-	// }
-	// socket.emit('pirateSock', { text: '' });
-
 	if(this.value.length) {
 		socket.emit('pirateSock',{ text: this.value });
 	}
@@ -20,12 +13,23 @@ $('#pad').bind('input propertychange', function() {
 
 $(function () {
 	socket.on('notifySock', function (data) {
+		if (!localStorage[data.type]) {
+			localStorage[data.type] = 0;
+		}
+		else {
+			localStorage[data.type] = parseInt(localStorage[data.type]) + 1;
+		}
 		console.log('sData: ', data.type);
-		var next = (parseInt($('#' + data.type).text()) + 1);
-		$('#' + data.type).text(next);
+		//var next = (parseInt($('#' + data.type).text()) + 1);
+		$('#' + data.type).text(localStorage[data.type]);
 	});
 })
 
-$("body").load(function() {
-	$("#pad").val() = localStorage["pirateText"];
+//grab the text and counters from the local db
+$(document).ready(function() {
+	$("#pad").val(localStorage["pirateText"]);
+	$("#slow").text(localStorage["slow"]);
+	$("#perfect").text(localStorage["perfect"]);
+	$("#speed").text(localStorage["speed"]);
 })
+
