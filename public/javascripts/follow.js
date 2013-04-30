@@ -35,14 +35,14 @@ $(function(){
 
 });
 
-function sync(){
-	// syncing=true;
-	if( $("#followFrame").attr('src')!=src && src!=undefined){
-		$("#followFrame").attr('src',src);
-	}
-	$("#fakeFrame").scrollTop(pos);
-}		
+// function sync(){
+// 	// syncing=true;
+// 	// if( $("#followFrame").attr('src')!=src && src!=undefined){
+// 	// 	$("#followFrame").attr('src',src);
+// 	// }
+// 	// $("#fakeFrame").scrollTop(pos);
+// }		
 
-$("#fakeFrame").scroll(function () {
-	// syncing=false;
-});
+// $("#fakeFrame").scroll(function () {
+// 	// syncing=false;
+// });
