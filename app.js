@@ -37,10 +37,10 @@ app.listen(app.get('port'), function () {
 });
 
 //THIS IS WHERE TEH MAGIC HAPPENS
-app.io.route('scrollSock',broadcast.sendPos);
-app.io.route('pageSock',broadcast.sendPage);
-app.io.route('pirateSock',broadcast.sendText);
-app.io.route('notifySock', follow.follow);
+app.io.route('scrollSock', broadcast.sendPos);
+app.io.route('pageSock', broadcast.sendPage);
+app.io.route('pirateSock', broadcast.sendText);
+app.io.route('notifySock', follow.sendNot);
 
 app.get('/', routes.index);
 app.get('/broadcast', function (req, res) {
@@ -49,3 +49,4 @@ app.get('/broadcast', function (req, res) {
 app.get('/follow', function (req, res) {
   res.render('follow.jade')
 });
+app.post('/notify', follow.notify);
