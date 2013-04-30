@@ -5,9 +5,7 @@
 
 var express = require('express.io')
   , routes = require('./routes')
-  // , user = require('./routes/user')
   , broadcast = require('./routes/broadcast')
-  , follow = require('./routes/follow')
   , http = require('http')
   , path = require('path');
 
@@ -41,7 +39,10 @@ app.listen(app.get('port'), function () {
 app.io.route('scrollSock', broadcast.sendPos);
 app.io.route('pageSock', broadcast.sendPage);
 app.io.route('pirateSock', broadcast.sendText);
-app.io.route('notifySock', broadcast.sendNot);
+app.io.route('notifySock', function (req) {
+  req.socket.broadcast.emit('notifySock', { type: req.data.type });
+});
+
 
 app.get('/', routes.index);
 app.get('/broadcast', function (req, res) {
@@ -49,8 +50,4 @@ app.get('/broadcast', function (req, res) {
 });
 app.get('/follow', function (req, res) {
   res.render('follow.jade')
-});
-app.post('/notify', function (req, res) {
-  console.log('sending notification with: ', req.body);
-  app.io.emit('notifySock', { type: req.body.type });
 });

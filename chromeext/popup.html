@@ -9,15 +9,23 @@
       }
     </style>
     <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="socket.io.js"></script>
     <script src="popup.js"></script>
   </head>
   <body>
     <div>
       <h1>Follow Along</h1>
       <button class="btn">Start Leading</button>
-      <textarea id="pad"></textarea>
+      <textarea id="pad" style="margin-top:20px"></textarea>
+      <h2>SLOWER: </h2>
+      <p id="slow">0</p>
+      <h2>PERFECT: </h2>
+      <p id="perfect">0</p>
+      <h2>FASTER: </h2>
+      <p id="speed">0</p>
     </div>
   </body>
-    <script type="text/javascript" src="jquery.min.js"></script>
+    
     <script type="text/javascript" src="popup.js"></script>
 </html>

@@ -21,6 +21,12 @@ $(function(){
 	socket.on('pirateSock', function (data) {
 		$("#textpad").text(data.text);
 	});
+	
+	//post to server on "slow down", "perfect pace", or "speed up" button press
+	$(".notify").on('click', function () {
+		socket.emit('notifySock', { type: $(this).attr('id') });
+	});
+
 });
 
 function sync(){
@@ -30,6 +36,3 @@ function sync(){
 	$("#fakeFrame").scrollTop(pos);
 }		
 
-$(".notify").on('click', function () {
-	$.post("/notify", { type: $(this).attr('id') });
-});
