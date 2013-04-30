@@ -23,6 +23,7 @@ function sync(){
 	$("#fakeFrame").scrollTop(100);
 }		
 
+//post to server on "slow down", "perfect pace", or "speed up" button press
 $(".notify").on('click', function () {
-	$.post("/follow", $(this).attr('id'));
+	$.post("/notify", $(this).attr('id'));
 });
