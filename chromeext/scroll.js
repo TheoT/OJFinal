@@ -14,4 +14,5 @@ $(window).scroll(function () {
 	docHeight=$(document).height();
 	socket.emit('scrollSock',{scroll: s, height:docHeight})
 	console.log("doc height: "+docHeight)
+
 });

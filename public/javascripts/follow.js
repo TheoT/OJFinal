@@ -29,3 +29,7 @@ function sync(){
 	}
 	$("#fakeFrame").scrollTop(pos);
 }		
+
+$(".notify").on('click', function () {
+	$.post("/follow", $(this).attr('id'));
+});
