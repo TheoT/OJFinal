@@ -5,7 +5,6 @@
 
 var express = require('express.io')
   , routes = require('./routes')
-  , user = require('./routes/user')
   , broadcast = require('./routes/broadcast')
   , follow = require('./routes/follow')
   , http = require('http')
