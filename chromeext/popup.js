@@ -1,6 +1,6 @@
-var SERVER_HOST='localhost';
-var SERVER_PORT='3000'; 
-var socket = io.connect(SERVER_HOST,{port:SERVER_PORT})
+var SERVER_HOST='ojfinal.herokuapp.com';
+// var SERVER_PORT='3000'; 
+var socket = io.connect(SERVER_HOST); //,{port:SERVER_PORT}
 
 //the following code captures any changes made to the textarea. We just need to have the socket emit the text
 $('#pad').bind('input propertychange', function() {
@@ -24,4 +24,8 @@ $(function () {
 		var next = (parseInt($('#' + data.type).text()) + 1);
 		$('#' + data.type).text(next);
 	});
+})
+
+$("body").load(function() {
+	$("#pad").val() = localStorage["pirateText"];
 })

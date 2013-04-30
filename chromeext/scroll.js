@@ -1,6 +1,6 @@
-var SERVER_HOST='localhost';
-var SERVER_PORT='3000'; 
-var socket = io.connect(SERVER_HOST,{port:SERVER_PORT})
+var SERVER_HOST='ojfinal.herokuapp.com';
+// var SERVER_PORT='3000'; 
+var socket = io.connect(SERVER_HOST); //,{port:SERVER_PORT}
 var s=0;
 var docHeight=100;
 $(function(){
