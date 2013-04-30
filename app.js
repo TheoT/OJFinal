@@ -6,7 +6,6 @@
 var express = require('express.io')
   , routes = require('./routes')
   , broadcast = require('./routes/broadcast')
-  , follow = require('./routes/follow')
   , http = require('http')
   , path = require('path');
 
@@ -37,10 +36,13 @@ app.listen(app.get('port'), function () {
 });
 
 //THIS IS WHERE TEH MAGIC HAPPENS
-app.io.route('scrollSock',broadcast.sendPos);
-app.io.route('pageSock',broadcast.sendPage);
-app.io.route('pirateSock',broadcast.sendText);
-app.io.route('notifySock', follow.follow);
+app.io.route('scrollSock', broadcast.sendPos);
+app.io.route('pageSock', broadcast.sendPage);
+app.io.route('pirateSock', broadcast.sendText);
+app.io.route('notifySock', function (req) {
+  req.socket.broadcast.emit('notifySock', { type: req.data.type });
+});
+
 
 app.get('/', routes.index);
 app.get('/broadcast', function (req, res) {
