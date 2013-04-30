@@ -22,3 +22,7 @@ $(function(){
 function sync(){
 	$("#fakeFrame").scrollTop(100);
 }		
+
+$(".notify").on('click', function () {
+	$.post("/follow", $(this).attr('id'));
+});
