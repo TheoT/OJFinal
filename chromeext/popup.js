@@ -31,7 +31,7 @@ $("body").load(function() {
 })
 
 $('#reset').on('click', function () {
-	$('#slow').text(0);
-	$('#perfect').text(0);
-	$('#speed').text(0);
+	localStorage['slow'] = 0
+	localStorage['perfect'] = 0
+	localStorage['speed'] = 0
 });
