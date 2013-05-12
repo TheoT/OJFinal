@@ -49,3 +49,13 @@ function updateText() {
 	$("#perfect").text(localStorage["perfect"]);
 	$("#speed").text(localStorage["speed"]);
 }
+
+$("body").load(function() {
+	$("#pad").val() = localStorage["pirateText"];
+})
+
+$('#reset').on('click', function () {
+	localStorage['slow'] = 0
+	localStorage['perfect'] = 0
+	localStorage['speed'] = 0
+});

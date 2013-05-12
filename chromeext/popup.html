@@ -16,14 +16,18 @@
       }
     </style>
     <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+<<<<<<< HEAD
     <link rel="stylesheet" src="popup.css"> 
     <script type="text/javascript" src="jquery.min.js"></script>
     <script type="text/javascript" src="socket.io.js"></script>
     <script src="popup.js"></script>
+=======
+>>>>>>> 37619b57eedb9a1c4fe73e9fd619b8959e429ee8
   </head>
   <body>
     <div id="main">
       <h1>Follow Along</h1>
+<<<<<<< HEAD
       <hr>
       <div class="btn-group">
         <button class="btn active leadToggle" id="doLead">Lead</button>
@@ -54,8 +58,21 @@
       </div>
     <div>
     <div>
+=======
+      <button class="btn">Start Leading</button>
+      <textarea id="pad" style="margin-top:20px"></textarea>
+      <h2>SLOWER: </h2>
+      <p id="slow">0</p>
+      <h2>PERFECT: </h2>
+      <p id="perfect">0</p>
+      <h2>FASTER: </h2>
+      <p id="speed">0</p>
+      <button class="btn" id="reset">Reset</button>
+>>>>>>> 37619b57eedb9a1c4fe73e9fd619b8959e429ee8
     </div>
   </body>
-    
-    <script type="text/javascript" src="popup.js"></script>
+  <!-- load js at the end for efficiency -->
+  <script type="text/javascript" src="jquery.min.js"></script>
+  <script type="text/javascript" src="socket.io.js"></script>
+  <script type="text/javascript" src="popup.js"></script>
 </html>
