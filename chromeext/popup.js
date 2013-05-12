@@ -11,6 +11,8 @@ $('#pad').bind('input propertychange', function() {
 	}
 });
 
+
+
 $(function () {
 	socket.on('notifySock', function (data) {
 		if (!localStorage[data.type]) {
@@ -20,16 +22,30 @@ $(function () {
 			localStorage[data.type] = parseInt(localStorage[data.type]) + 1;
 		}
 		console.log('sData: ', data.type);
-		//var next = (parseInt($('#' + data.type).text()) + 1);
 		$('#' + data.type).text(localStorage[data.type]);
 	});
 })
 
 //grab the text and counters from the local db
 $(document).ready(function() {
+
+	$("#clearCounter").click(function () {
+		localStorage['slow'] = 0;
+		localStorage['perfect'] = 0;
+		localStorage['speed'] = 0;
+		updateText();
+	})
+
+	$("#leadToggle").click(function() {
+		this.attr('id').toggleClo
+	})
+
+	updateText();
+})
+
+function updateText() {
 	$("#pad").val(localStorage["pirateText"]);
 	$("#slow").text(localStorage["slow"]);
 	$("#perfect").text(localStorage["perfect"]);
 	$("#speed").text(localStorage["speed"]);
-})
-
+}
