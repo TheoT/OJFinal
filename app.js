@@ -35,6 +35,12 @@ app.listen(app.get('port'), function () {
   console.log("Express server listening on port " + app.get('port'));
 });
 
+// assuming io is the Socket.IO server object
+app.io.configure(function () { 
+  app.io.set("transports", ["xhr-polling"]); 
+  app.io.set("polling duration", 10); 
+});
+
 //THIS IS WHERE TEH MAGIC HAPPENS
 app.io.route('scrollSock', broadcast.sendPos);
 app.io.route('pageSock', broadcast.sendPage);

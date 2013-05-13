@@ -1,7 +1,8 @@
-// var SERVER_HOST='ojfinal.herokuapp.com';
-var SERVER_HOST='localhost';
+var SERVER_HOST='ojfinal.herokuapp.com';
+// var SERVER_HOST='localhost';
 var SERVER_PORT='3000'; 
-var socket = io.connect(SERVER_HOST, {port:SERVER_PORT});
+// var socket = io.connect(SERVER_HOST, {port:SERVER_PORT});
+var socket = io.connect(SERVER_HOST);
 
 // localStorage['roomName']=String(Math.floor(Math.random()*10000000));
 

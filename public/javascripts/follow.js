@@ -1,5 +1,5 @@
-// var socket = io.connect('http://ojfinal.herokuapp.com');
-var socket = io.connect('http://localhost:3000');
+var socket = io.connect('http://ojfinal.herokuapp.com');
+// var socket = io.connect('http://localhost:3000');
 var pos;
 var src;
 var syncing = true;
