@@ -59,6 +59,7 @@ function updateText() {
 	$("#perfect").text(localStorage["perfect"]);
 	$("#speed").text(localStorage["speed"]);
 	updatePirate();
+	$('#roomCode').val(localStorage["roomName"]);
 }
 
 //update pirate pad
