@@ -7,7 +7,7 @@ var socket = io.connect(SERVER_HOST, {port:SERVER_PORT});
 
 
 $(function(){
-	$("#roomCode").val(localStorage['roomName']);
+	// $("#roomCode").val(localStorage['roomName']);
 });
 
 //the following code captures any changes made to the textarea. We just need to have the socket emit the text
@@ -80,7 +80,7 @@ $("#roomChange").on('click', function(){
 	}
 	else{
 		localStorage['roomName']=roomName;
-		socket.emit('changeRoom',roomName);
+		socket.emit('changeRoom',{roomName:roomName});
 	};
 
 })

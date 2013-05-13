@@ -1,6 +1,7 @@
 exports.sendPos = function(req){
 	room=req.data.roomName;
 	req.socket.broadcast.to(room).emit('scrollSock',{scroll:req.data.scroll, height:req.data.height});
+	console.log(room);
 }
 
 exports.sendPage=function(req){

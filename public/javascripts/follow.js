@@ -24,7 +24,6 @@ $(function(){
 	});
 
 	socket.on('pageSock',function(data){
-		console.log("DATA!!!  ",data);
 		src=data.page;
 		if(syncing){
 			$("#followFrame").attr('src',data.page);
