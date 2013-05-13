@@ -49,7 +49,7 @@ app.io.route('changeRoom',follow.changeRoom);
 app.get('/broadcast', function (req, res) {
   res.render('broadcast.jade')
 });
-app.get('/follow/:roomName/', function (req, res) {
+app.get('/follow/:roomName', function (req, res) {
   res.render('follow.jade')
 });
 app.get('/', routes.index);
