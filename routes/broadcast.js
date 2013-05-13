@@ -7,9 +7,10 @@ exports.sendPos = function(req){
 exports.sendPage=function(req){
 	for(var room in (req.socket.manager.roomClients[req.socket.id])){
 		room=room.replace('/','');
-		if(room!=''){
-			req.socket.broadcast.to(room).emit('pageSock',{page:req.data.page});
-		}
+		console.log(room);
+		// if(room!=''){
+		req.socket.broadcast.to(room).emit('pageSock',{page:req.data.page});
+		// }
 	}
 }
 
