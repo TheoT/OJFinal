@@ -31,9 +31,18 @@ a {
   padding: 10px;
   padding-bottom: 0px;
   overflow: scroll;
-  height: 150px;
+  height: 95%;
 }
 
 #fakeFrame {
-  margin-bottom: 20px;
+  height: 600px; 
+  overflow-y: hidden; 
+  overflow-x: scroll;
+  display: inline-block;
+}
+
+.notify {
+  width: 100%;
+  margin-left: 30px;
+  margin-bottom: 6px;
 }

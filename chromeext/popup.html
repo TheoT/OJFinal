@@ -3,25 +3,54 @@
     <title>Follow Along</title>
     <style>
       body {
-        min-width: 200px;
+        min-width: 800px;
         min-height: 200px;
-        overflow-x: hidden;
+        overflow: hidden;
+      }
+      #pad {
+        width: 100%;
+        height: 212px;
+      }
+      #main {
+        padding: 15px;
       }
     </style>
     <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" src="popup.css"> 
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="socket.io.js"></script>
+    <script src="popup.js"></script>
   </head>
   <body>
-    <div>
+    <div id="main">
       <h1>Follow Along</h1>
-      <button class="btn">Start Leading</button>
-      <textarea id="pad" style="margin-top:20px"></textarea>
-      <h2>SLOWER: </h2>
-      <p id="slow">0</p>
-      <h2>PERFECT: </h2>
-      <p id="perfect">0</p>
-      <h2>FASTER: </h2>
-      <p id="speed">0</p>
-      <button class="btn" id="reset">Reset</button>
+      <div class="btn-group">
+        <button class="btn leadToggle" id="doLead">Lead</button>
+        <button class="btn active leadToggle" id="dontLead">Don't Lead</button>
+      </div>
+      <p style="margin-top: 15px">When you lead, all sites you visit will be visible to your students.<p>
+      <div class="row-fluid">  
+        <div class="span7">
+          <h4>Send a message to your students!</h4>
+          <textarea id="pad" style="margin-top:20px"></textarea>
+        </div>
+        <div class="span5">
+          <h3>Students say:</h3>
+          <div>
+            <h4>Go slower: </h4>
+            <p id="slow">0</p>
+          </div>
+          <div>
+            <h4>Perfect pace: </h4>
+            <p id="perfect">0</p>
+          </div>
+          <div>
+            <h4>Go faster: </h4>
+            <p id="speed">0</p>
+          </div>
+          <button class="btn btn-danger" id="clearCounter">clear</button>
+        </div>
+      </div>
     </div>
   </body>
   <!-- load js at the end for efficiency -->

@@ -1,4 +1,3 @@
-
 /**
  * Module dependencies.
  */
@@ -35,19 +34,13 @@ app.listen(app.get('port'), function () {
   console.log("Express server listening on port " + app.get('port'));
 });
 
-// Heroku setting for long polling
-app.io.configure(function () { 
-    app.io.set("transports", ["xhr-polling"]); 
-    app.io.set("polling duration", 10); 
-});
-
 //THIS IS WHERE TEH MAGIC HAPPENS
 app.io.route('scrollSock', broadcast.sendPos);
+app.io.route('pageSock', broadcast.sendPage);
 app.io.route('pirateSock', broadcast.sendText);
 app.io.route('notifySock', function (req) {
   req.socket.broadcast.emit('notifySock', { type: req.data.type });
 });
-app.io.route('pageSock', broadcast.sendPage);
 
 
 app.get('/broadcast', function (req, res) {
