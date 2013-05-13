@@ -1,8 +1,14 @@
-var socket = io.connect()
+var socket = io.connect('http://localhost:3000');
 var pos;
 var src;
 // var syncing = true;
 $(function(){
+
+	var roomName = window.location.pathname.split( '/' )[2];
+	socket.emit('changeRoom',{roomName: roomName});
+	// console.log(socket)
+	// socket.emit('changeRoom',{})
+
 	socket.on('scrollSock',function(data){
 		pos=data.scroll
 		// if (syncing) {

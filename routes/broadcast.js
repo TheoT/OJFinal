@@ -1,11 +1,18 @@
 exports.sendPos = function(req){
-	req.socket.broadcast.emit('scrollSock',{scroll:req.data.scroll, height:req.data.height})
+	room=req.data.roomName;
+	req.socket.broadcast.to(room).emit('scrollSock',{scroll:req.data.scroll, height:req.data.height});
 }
 
 exports.sendPage=function(req){
-	req.socket.broadcast.emit('pageSock',{page:req.data.page})
+	for(var room in (req.socket.manager.roomClients[req.socket.id])){
+		room=room.replace('/','');
+		if(room!=''){
+			req.socket.broadcast.to(room).emit('pageSock',{page:req.data.page});
+		}
+	}
 }
 
 exports.sendText = function (req) {
-  req.socket.broadcast.emit('pirateSock', {text: req.data.text});
+	room=req.data.roomName;
+  	req.socket.broadcast.to(room).emit('pirateSock', {text: req.data.text});
 }

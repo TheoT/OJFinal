@@ -5,6 +5,7 @@
 var express = require('express.io')
   , routes = require('./routes')
   , broadcast = require('./routes/broadcast')
+  , follow = require('./routes/follow')
   , http = require('http')
   , path = require('path');
 
@@ -42,11 +43,13 @@ app.io.route('notifySock', function (req) {
   req.socket.broadcast.emit('notifySock', { type: req.data.type });
 });
 
+app.io.route('changeRoom',follow.changeRoom);
+
 
 app.get('/broadcast', function (req, res) {
   res.render('broadcast.jade')
 });
-app.get('/follow', function (req, res) {
+app.get('/follow/:roomName/', function (req, res) {
   res.render('follow.jade')
 });
 app.get('/', routes.index);

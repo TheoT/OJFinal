@@ -1,7 +1,3 @@
-
-
-
-// exports.notify = function (req, res) {
-// 	console.log('sending notification', req.body);
-// 	socket.emit('notifySock', {type: req.body.type });
-// };
+exports.changeRoom = function(req){
+	req.socket.join(req.data.roomName);
+}

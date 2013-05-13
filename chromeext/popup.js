@@ -3,6 +3,8 @@ var SERVER_HOST='localhost';
 var SERVER_PORT='3000'; 
 var socket = io.connect(SERVER_HOST, {port:SERVER_PORT});
 
+localStorage['roomName']='bongo';
+
 //the following code captures any changes made to the textarea. We just need to have the socket emit the text
 $('#pad').bind('input propertychange', function() {
 	localStorage["pirateText"]=this.value;
@@ -14,7 +16,7 @@ $('#pad').bind('input propertychange', function() {
 
 function updatePirate() {
 	if (localStorage['leading'] == 'true') {
-		socket.emit('pirateSock', { text: localStorage['pirateText'] });
+		socket.emit('pirateSock', { text: localStorage['pirateText'], roomName: localStorage['roomName']});
 	}
 }
 
