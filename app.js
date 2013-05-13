@@ -56,6 +56,4 @@ app.get('/broadcast', function (req, res) {
 app.get('/follow', function (req, res) {
   res.render('follow.jade')
 });
-app.get('/', function (req, res) {
-  res.render('follow.jade')
-});
+app.get('/', routes.index);
