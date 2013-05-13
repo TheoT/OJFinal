@@ -1,16 +1,11 @@
 extends layout
 
 block nav-content
-	li.active
-		a(href='/')
-			i.icon-home.icon-white
-			| Home
+    li.active
+        a(href='/')
+            i.icon-home.icon-white
+            | Home
 
 block content
-	h1 #{title}
-	p Following your instructor on the projector has never been easier. 
-
-	dl.dl-horizontal
-		each room in rooms
-	    dt #{room.name}
-	    dd #{room.description}
+    h1 #{title}
+    p Following your instructor on the projector has never been easier. 

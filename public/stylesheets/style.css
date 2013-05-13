@@ -46,3 +46,7 @@ a {
   margin-left: 30px;
   margin-bottom: 6px;
 }
+
+#followFrame {
+  height: 576px;
+}
