@@ -1,7 +1,7 @@
-// var SERVER_HOST='ojfinal.herokuapp.com';
-var SERVER_HOST = 'localhost';
+var SERVER_HOST='ojfinal.herokuapp.com';
+// var SERVER_HOST = 'localhost';
 var SERVER_PORT='3000';
-var socket = new io.connect(SERVER_HOST, {port: SERVER_PORT})
+var socket = new io.connect(SERVER_HOST);//, {port: SERVER_PORT})
 
 localStorage['leading'] = 'false'; //set default leadership false
 
