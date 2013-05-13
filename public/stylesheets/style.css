@@ -35,8 +35,7 @@ a {
 }
 
 #fakeFrame {
-  height: 600px; 
-  overflow-y: hidden; 
+  height: 600px;  
   overflow-x: scroll;
   display: inline-block;
 }
