@@ -2,9 +2,7 @@
 var SERVER_HOST = 'localhost';
 var SERVER_PORT='3000';
 var socket = new io.connect(SERVER_HOST, {port: SERVER_PORT})
-var roomName=localStorage['bongo'];
-
-
+var roomName=localStorage['roomName'];
 
 localStorage['leading'] = 'false'; //set default leadership false
 
@@ -37,7 +35,7 @@ chrome.windows.onFocusChanged.addListener(function(windowID) {
 //handle sending leadership status to content script
 chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
     if (request.method == "getStatus")
-      sendResponse({status: localStorage['leading'],room:roomName});
+      sendResponse({status: localStorage['leading'],room:localStorage['roomName']});
     else
       sendResponse({status : "none"}); // snub them.
 });

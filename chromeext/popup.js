@@ -3,7 +3,12 @@ var SERVER_HOST='localhost';
 var SERVER_PORT='3000'; 
 var socket = io.connect(SERVER_HOST, {port:SERVER_PORT});
 
-localStorage['roomName']='bongo';
+// localStorage['roomName']=String(Math.floor(Math.random()*10000000));
+
+
+$(function(){
+	$("#roomCode").val(localStorage['roomName']);
+});
 
 //the following code captures any changes made to the textarea. We just need to have the socket emit the text
 $('#pad').bind('input propertychange', function() {
@@ -62,7 +67,20 @@ $("body").load(function() {
 
 //toggle leading
 $(".leadToggle").on('click', function() {
+	if(localStorage['roomName']=="") return;
 	$(".leadToggle").toggleClass("active");
 	localStorage['leading'] = ($(this).attr('id') == "doLead");
 	updateText();
+});
+
+$("#roomChange").on('click', function(){
+	var roomName=$("#roomCode").val();
+	if(roomName==""){
+		return
+	}
+	else{
+		localStorage['roomName']=roomName;
+		socket.emit('changeRoom',roomName);
+	};
+
 })

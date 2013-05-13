@@ -11,9 +11,10 @@ $(function(){
 	s = $('body').scrollTop();
 	chrome.extension.sendRequest({method: "getStatus"}, function(response) {
   		if (response.status == 'true') {
+  			room=response.room;
 			socket.emit('scrollSock',{scroll: s, height:docHeight,roomName:room});
 			console.log("doc height: "+docHeight);
-			room=response.room;
+			
 		}
 	});
 })
@@ -24,6 +25,7 @@ $(window).scroll(function () {
 
 	chrome.extension.sendRequest({method: "getStatus"}, function(response) {
   		if (response.status == 'true') {
+  			room=response.room;
 			socket.emit('scrollSock',{scroll: s, height:docHeight,roomName:room})
 			console.log("doc height: "+docHeight)
 		}
