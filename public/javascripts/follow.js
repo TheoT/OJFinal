@@ -1,7 +1,8 @@
 var socket = io.connect('http://localhost:3000');
 var pos;
 var src;
-// var syncing = true;
+var syncing = true;
+
 $(function(){
 
 	var roomName = window.location.pathname.split( '/' )[2];
@@ -10,8 +11,8 @@ $(function(){
 	// socket.emit('changeRoom',{})
 
 	socket.on('scrollSock',function(data){
-		pos=data.scroll
-		// if (syncing) {
+		pos=data.scroll;
+		if (syncing) {
 			$("#fakeFrame").scrollTop(data.scroll);
 			$("#followFrame").css("overflow","hidden");
 			console.log(data)
@@ -19,15 +20,15 @@ $(function(){
 				$("#followFrame").height(data.height+"px")
 				console.log("doc height: "+data.height)
 			}
-		// }
+		}
 	});
 
 	socket.on('pageSock',function(data){
 		console.log("DATA!!!  ",data);
 		src=data.page;
-		// if(syncing){
+		if(syncing){
 			$("#followFrame").attr('src',data.page);
-		// }
+		}
 	});
 
 	socket.on('pirateSock', function (data) {
@@ -41,14 +42,11 @@ $(function(){
 
 });
 
-// function sync(){
-// 	// syncing=true;
-// 	// if( $("#followFrame").attr('src')!=src && src!=undefined){
-// 	// 	$("#followFrame").attr('src',src);
-// 	// }
-// 	// $("#fakeFrame").scrollTop(pos);
-// }		
-
-// $("#fakeFrame").scroll(function () {
-// 	// syncing=false;
-// });
+function sync(){
+	syncing = !syncing;
+	$("#sync").toggleClass("active");
+	if( $("#followFrame").attr('src')!=src && src!=undefined){
+		$("#followFrame").attr('src',src);
+	}
+	$("#fakeFrame").scrollTop(pos);
+}		
