@@ -24,7 +24,7 @@ chrome.extension.onRequest.addListener(function(request) {
     }
 });
 
-//grab the text and counters from the local db
+//grab the text and counters from the local db on page load
 $(document).ready(function() {
 	updateText();
 	checkLeadership();
@@ -36,10 +36,11 @@ function checkLeadership() {
 	$(leading ? "#dontLead" : "#doLead").removeClass("active");
 }
 
+//reset counters to zero
 $("#clearCounter").click(function () {
-	localStorage['slow'] = 0;
+	localStorage['slow'] 	= 0;
 	localStorage['perfect'] = 0;
-	localStorage['speed'] = 0;
+	localStorage['speed'] 	= 0;
 	updateText();
 })
 
@@ -56,13 +57,6 @@ function updateText() {
 $("body").load(function() {
 	$("#pad").val() = localStorage["pirateText"];
 })
-
-//reset counters on button press
-$('#reset').on('click', function () {
-	localStorage['slow'] = 0
-	localStorage['perfect'] = 0
-	localStorage['speed'] = 0
-});
 
 //toggle leading
 $(".leadToggle").on('click', function() {
